@@ -1,0 +1,91 @@
+<h2>Details for {{ filmDetailsAPIResult.Title }}</h2>
+
+<div class="film-details" ng-if="filmDetailsAPIResult.Response==='True'">
+    <div class="panel panel-default">
+        <div class="panel-heading"> {{ filmDetailsAPIResult.Title }} </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-sm-3 col-md-3">
+                    <img src="{{ filmDetailsAPIResult.Poster }}" alt="{{ filmDetailsAPIResult.Title }}" title="{{ filmDetailsAPIResult.Title }}" />
+                </div>
+
+                <div class="col-sm-9 col-md-9">
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6">
+                            <p><strong>Year: </strong> {{ filmDetailsAPIResult.Year }}</p>
+                        </div>
+                        <div class="col-sm-6 col-md-6">
+                            <p><strong>Rated: </strong> {{ filmDetailsAPIResult.Rated }}</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6">
+                            <p><strong>Released: </strong> {{ filmDetailsAPIResult.Released }}</p>
+                        </div>
+                        <div class="col-sm-6 col-md-6">
+                            <p><strong>Runtime: </strong> {{ filmDetailsAPIResult.Runtime }}</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6">
+                            <p><strong>Genre: </strong> {{ filmDetailsAPIResult.Genre }}</p>
+                        </div>
+                        <div class="col-sm-6 col-md-6">
+                            <p><strong>Director: </strong> {{ filmDetailsAPIResult.Director }}</p>
+                        </div>
+                    </div>    
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p><strong>Plot: </strong> {{ filmDetailsAPIResult.Plot }}</p>
+                        </div>
+                    </div>   
+
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6">
+                            <p><strong>Language: </strong> {{ filmDetailsAPIResult.Language }}</p>
+                        </div>
+                        <div class="col-sm-6 col-md-6">
+                            <p><strong>Country: </strong> {{ filmDetailsAPIResult.Country }}</p>
+                        </div>
+                    </div>     
+
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6">
+                            <p><strong>Awards: </strong> {{ filmDetailsAPIResult.Awards }}</p>
+                        </div>
+                        <div class="col-sm-6 col-md-6">
+                            <p><strong>Metascore: </strong> {{ filmDetailsAPIResult.Metascore }}</p>
+                        </div>
+                    </div>    
+
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6">
+                            <p><strong>imdbRating: </strong> {{ filmDetailsAPIResult.imdbRating }}</p>
+                        </div>
+                        <div class="col-sm-6 col-md-6">
+                            <p><strong>imdbVotes: </strong> {{ filmDetailsAPIResult.imdbVotes }}</p>
+                        </div>
+                    </div>                
+
+                </div>
+            </div>
+        </div>
+    </div>    
+</div>
+
+<div class="row" ng-if="filmDetailsAPIResult.Response==='False'">
+    <div class="col-md-12">
+        <p class="no-results">Sorry, an error occurred while retrieving the film details for '{{searchFilm}}'</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="clearfix">
+            <a href="{{'#/filmlist/'+ currentPageNum}}" class="btn btn-success"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Back to search results</a>
+        </div>
+    </div>
+</div>

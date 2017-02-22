@@ -1,0 +1,49 @@
+<h2>Search results for '{{ searchFilm }}'</h2>
+
+
+<div class="row" ng-if="filmResult.Response==='True'">
+    <div class="col-md-12">
+        
+        <div class="film-search-list">
+
+            <div class="list-group" >
+
+                <a href="{{'#/filmdetails/'+film.imdbID}}" class="list-group-item" ng-repeat="film in filmResult.Search">
+                    <div class="row">
+                        <div class="col-xs-4 col-sm-2 col-md-2">
+                            <img src="{{ film.Poster }}" alt="{{ film.Title }}" title="{{ film.Title }}" />
+                        </div>
+                        <div class="col-xs-8 col-sm-10 col-md-10">
+                            <h4 class="list-group-item-heading">{{ film.Title }}</h4>
+                            <p class="list-group-item-text text-muted">Click for more details</p>                       
+                        </div>
+                    </div>
+                </a>   
+
+            </div>             
+            
+        </div>
+ 
+        
+    </div>
+</div>
+
+<div class="row" ng-if="filmResult.Response==='False'">
+    <div class="col-md-12">
+        <p class="no-results">Sorry, couldn't find any movies using '{{searchFilm}}'</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="clearfix">
+            <a href="#/" class="btn btn-success"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Search again</a>
+        
+            <div class="btn-group pull-right">
+                <a href="{{'#/filmlist/'+ pageNumPrev}}" ng-class="pageNum > '1' ? 'btn btn-default' : 'btn btn-default disabled'"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Previous page</a>
+                <a href="{{'#/filmlist/'+ pageNumNext}}" ng-class="pageNum < maxPages ? 'btn btn-success' : 'btn btn-default disabled'">Next page <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+            </div>        
+        </div>
+
+    </div>
+</div>
